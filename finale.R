@@ -1,0 +1,6 @@
+russet<-read.table("russet.txt",header=TRUE,sep="\t")
+library(VIM)
+library(chemometrics)
+data1<-kNN(russet,variable=c("Rent","ecks"),k=6)
+russetimp<-subset(data1,select=Gini:Death)
+finale_data<-Moutlier(russetimp,quantile=0.975,plot=TRUE)
